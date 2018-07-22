@@ -13,7 +13,10 @@ var burger = {
 		});
 	},
 
-	update: function(b) {
+	update: function(cols, vals, cb) {
+		orm.updateOne("burger", cols, vals, function(res) {
+			cb(res);
+		});
 	}
 }
 

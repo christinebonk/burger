@@ -25,20 +25,19 @@ var orm = {
 		var question = printQuestionMarks(vals.length)
 		var queryString = `INSERT INTO ${table} (${cols}) VALUES (${question})`
 
-		connection.query(queryString, vals, function(err, result) {
+		connection.query(queryString, vals, function(err, res) {
 			if(err) throw err;
-			cb(result);
+			cb(res);
+		});
+	},
+
+	updateOne: function(table, cols, vals, cb) {
+		var queryString = `UPDATE ${table} SET devoured = ${vals} WHERE id = ${cols}`;
+		connection.query(queryString, function (err, res) {
+			if (err) throw err;
+			cb(res);
 		});
 	}
-
-// 	updateOne: function(burger_obj) {
-// 		var queryString = `UPDATE burger SET devoured = 1 WHERE burger.name = ?`;
-// 		var values = burger_obj.name;
-// 		connection.query(queryString, values, function (err, res) {
-// 			if (err) throw err;
-// 			else console.log ("Burger Updated!")
-// 		})
-// 	}
 };
 
 

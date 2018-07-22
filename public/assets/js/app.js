@@ -1,6 +1,5 @@
 
   $("form").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
     event.preventDefault();
     console.log("hi")
 
@@ -8,15 +7,33 @@
       burger_name: $("#new_burg").val().trim()
     };
 
-    // Send the POST request.
     $.ajax("/api/burger", {
       type: "POST",
       data: newBurger
     }).then(
       function() {
         console.log("created new burger");
-        // Reload the page to get the updated list
-        // location.reload();
+        location.reload();
       }
     );
   });
+
+$(".eat").on("click", function(event) {
+  event.preventDefault();
+  var id = $(this).attr("data-id");
+  var devoured = true;
+  var updateBurger = {
+    id: id,
+    devoured: devoured
+  };
+
+  $.ajax("/api/burger", {
+    type: "PUT",
+    data: updateBurger
+  }).then(
+  function() {
+    console.log("updated buger");
+    location.reload();
+  })
+})
+
