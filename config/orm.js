@@ -12,13 +12,13 @@ function printQuestionMarks(num) {
 
 var orm = {
 
-// 	selectAll: function() {
-// 		var queryString = `SELECT * FROM burger`; 
-// 		connection.query(queryString, function(err, res) {
-// 			if (err) throw err;
-// 			else console.log(res);
-// 		})
-// 	},
+	selectAll: function(table, cb) {
+		var queryString = `SELECT * FROM ${table}`; 
+		connection.query(queryString, function(err, res) {
+			if (err) throw err;
+			else cb(res);
+		})
+	},
 
 	insertOne: function(table, cols, vals, cb) {
 		var cols = cols.toString();

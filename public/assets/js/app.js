@@ -5,8 +5,7 @@
     console.log("hi")
 
     var newBurger = {
-      burger_name: $("#new_burg").val().trim(),
-      devoured: false
+      burger_name: $("#new_burg").val().trim()
     };
 
     // Send the POST request.
@@ -17,7 +16,7 @@
       function() {
         console.log("created new burger");
         // Reload the page to get the updated list
-        location.reload();
+        // location.reload();
       }
     );
   });

@@ -8,23 +8,28 @@
 <div id="burgers">
 
 	<!--Not Eaten-->
-{{!-- 	<div id="not-eaten">
+	<div id="not-eaten">
+		<h2>Not Eaten</h2>
 		<ul>
 		  {{#each burger}}
-		    {{#unless devoured}}
-		      {{> burger/burger-block devoured=false}}
-		    {{/unless}}
+			{{#unless devoured}}
+			<li>{{this.burger_name}}</li>
+{{!-- 		      {{> burgers/burger-block devoured=true}}
+ --}}		    {{/unless}}
 		  {{/each}}
 		</ul>
 	</div>
- --}}
+
 	<!--Eaten-->
-{{!-- 	<div id="eaten">
+	<div id="eaten">
+		<h2>Eaten</h2>
+		<ul>
 		{{#each burger}}
 		    {{#if devoured}}
-		      {{> burger/burger-block devoured=true}}
-		    {{/unless}}
+		    <li>{{this.burger_name}}</li>
+{{!-- 		      {{> burger/burger-block devoured=true}}
+ --}}		    {{/if}}
 		  {{/each}}
 		</ul>
 	</div>
-</div> --}}
+</div>
