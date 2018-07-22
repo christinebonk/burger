@@ -14,7 +14,8 @@ function routes(app) {
 			console.log(burger_obj);
 			res.render("index", burger_obj);	
 		})
-		
+
+
 	});
 
 	app.post("/api/burger", function(req, res) {

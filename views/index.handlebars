@@ -1,32 +1,36 @@
 <!--Form-->
 <form>
 	<textarea id="new_burg"></textarea> 
-	<button id="submit">Submit</button>
+	<button id="submit">Order Burger</button>
 </form>
 
 <!--Burgers-->
 <div id="burgers">
 
 	<!--Not Eaten-->
-	<div id="not-eaten">
+	<div id="not-eaten" class="container">
 		<h2>Not Eaten</h2>
 		<ul>
 		  {{#each burger}}
 			{{#unless devoured}}
+			<div class="burger-container">
 			<li>{{this.burger_name}}</li>
 		      {{> burgers/burger-block devoured=false}}
+		    </div>
 		    {{/unless}}
 		  {{/each}}
 		</ul>
 	</div>
 
 	<!--Eaten-->
-	<div id="eaten">
+	<div id="eaten" class="container">
 		<h2>Eaten</h2>
 		<ul>
 		{{#each burger}}
 		    {{#if devoured}}
+		    <div class="burger-container">
 		    <li>{{this.burger_name}}</li>
+			</div>
 		    {{/if}}
 		  {{/each}}
 		</ul>

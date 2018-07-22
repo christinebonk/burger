@@ -1,22 +1,25 @@
 
   $("form").on("submit", function(event) {
     event.preventDefault();
-    console.log("hi")
+    var name = $("#new_burg").val().trim();
+    if (name === "") {
 
-    var newBurger = {
-      burger_name: $("#new_burg").val().trim()
-    };
+    } else {
+      var newBurger = {
+       burger_name: name,
+      };
+       $.ajax("/api/burger", {
+        type: "POST",
+        data: newBurger,
+      }).then(
+        function() {
+          console.log("created new burger");
+          location.reload();
+        });
+    }
+    });
 
-    $.ajax("/api/burger", {
-      type: "POST",
-      data: newBurger
-    }).then(
-      function() {
-        console.log("created new burger");
-        location.reload();
-      }
-    );
-  });
+
 
 $(".eat").on("click", function(event) {
   event.preventDefault();
