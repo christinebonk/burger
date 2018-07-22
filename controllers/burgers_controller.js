@@ -11,11 +11,8 @@ function routes(app) {
 			var burger_obj = {
 				burger: data
 			}
-			console.log(burger_obj);
 			res.render("index", burger_obj);	
-		})
-
-
+		});
 	});
 
 	app.post("/api/burger", function(req, res) {
